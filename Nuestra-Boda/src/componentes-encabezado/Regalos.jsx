@@ -287,7 +287,7 @@ const Regalos = () => {
                 sm:text-2xl
               "
             >
-              Tu presencia es nuestro mejor regalo.
+              Tu Cariño es nuestro mejor regalo
             </p>
 
             <p
@@ -301,7 +301,7 @@ const Regalos = () => {
                 sm:text-lg
               "
             >
-              Si deseas obsequiarnos un detalle, tendremos disponible una urna
+              Si deseas tener detalle, tendremos disponible una urna
               durante el evento para recibirlo con mucho cariño.
             </p>
           </motion.div>
