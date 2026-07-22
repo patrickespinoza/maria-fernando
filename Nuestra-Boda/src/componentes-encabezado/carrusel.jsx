@@ -15,7 +15,7 @@ const Carousel = ({
   ],
 }) => {
   const images = [
-    "/Carrusel01.JPEG",
+    "/Carrusell01.JPEG",
     "/Carrusel02.JPEG",
     "/Carrusel03.JPEG",
     "/Carrusel04.JPEG",
