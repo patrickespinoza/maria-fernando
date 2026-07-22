@@ -7,7 +7,7 @@ const Confirmacion = () => {
   // =====================================================
 
   const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbzhLFVhNDWIe1W5pN-Ft6d18Ct-bq6nxZvCCnJeTxPXKBxvpUooHpWNgH6Mz5ZweDJiag/exec";
+    "https://script.google.com/macros/s/AKfycbxTMDozwzzH1EZmkHpUj1-mFydvfNZ0ZCKQPZsbcOkPaHJimfxEADlcoPVVsPm2Jj0AVg/exec";
 
   // Escribe el número con código de país, sin +, espacios ni guiones.
   // Ejemplo México: 5215512345678
