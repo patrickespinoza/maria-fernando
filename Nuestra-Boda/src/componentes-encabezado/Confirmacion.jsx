@@ -7,7 +7,7 @@ const Confirmacion = () => {
   // =====================================================
 
   const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbxTMDozwzzH1EZmkHpUj1-mFydvfNZ0ZCKQPZsbcOkPaHJimfxEADlcoPVVsPm2Jj0AVg/exec";
+    "https://script.google.com/macros/s/AKfycbwkGohQQS_1gROD6Kgy4gtga4LlVWq317U5MocknXAsaC1VrCLXl_wXphw_0Px7guDyLA/exec";
 
   // Escribe el número con código de país, sin +, espacios ni guiones.
   // Ejemplo México: 5215512345678
@@ -239,90 +239,88 @@ const Confirmacion = () => {
   // =====================================================
 
   const enviarConfirmacion = async () => {
-    // Segunda protección contra clics repetidos
-    if (enviando) return;
+  if (enviando) return;
 
-    const errorValidacion = validarFormulario();
+  const errorValidacion = validarFormulario();
 
-    if (errorValidacion) {
-      setError(errorValidacion);
-      setEnviado(false);
-      return;
-    }
-
-    setError("");
+  if (errorValidacion) {
+    setError(errorValidacion);
     setEnviado(false);
-    setEnviando(true);
+    return;
+  }
 
-    const cantidadConfirmada =
-      asistencia === "Sí asistiré"
-        ? Number(invitados)
-        : 0;
+  setError("");
+  setEnviado(false);
+  setEnviando(true);
 
-    const data = {
-      nombre: nombreInvitado.trim(),
-      asistencia,
-      invitados: cantidadConfirmada,
-      mensaje: mensajeInvitado.trim(),
-      pasesAsignados,
-      fecha: new Date().toLocaleString("es-MX"),
-    };
+  const cantidadConfirmada =
+    asistencia === "Sí asistiré"
+      ? Number(invitados)
+      : 0;
 
-    try {
-      /*
-        Se utiliza text/plain para evitar solicitudes OPTIONS
-        innecesarias con Google Apps Script.
-      */
+  const data = {
+    nombre: nombreInvitado.trim(),
+    asistencia,
+    invitados: cantidadConfirmada,
+    mensaje: mensajeInvitado.trim(),
+    pasesAsignados,
+    fecha: new Date().toLocaleString("es-MX"),
+  };
 
-      await fetch(SCRIPT_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8",
-        },
-        body: JSON.stringify(data),
-      });
+  try {
+    console.log("Datos enviados:", data);
+    console.log("URL Apps Script:", SCRIPT_URL);
 
-      setEnviado(true);
+    await fetch(SCRIPT_URL, {
+      method: "POST",
 
-      const mensajeWhatsApp =
-        construirMensajeWhatsApp();
+      // Necesario para evitar que el navegador bloquee
+      // la respuesta redirigida de Apps Script.
+      mode: "no-cors",
 
-      const enlaceWhatsApp = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+
+      body: JSON.stringify(data),
+    });
+
+    setEnviado(true);
+
+    const mensajeWhatsApp =
+      construirMensajeWhatsApp();
+
+    const enlaceWhatsApp =
+      `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(
         mensajeWhatsApp
       )}`;
 
-      /*
-        Se abre WhatsApp después de guardar en Excel.
-        Cambia "_blank" por "_self" si deseas que abra
-        WhatsApp en la misma pestaña.
-      */
+    window.open(
+      enlaceWhatsApp,
+      "_blank",
+      "noopener,noreferrer"
+    );
 
-      window.open(
-        enlaceWhatsApp,
-        "_blank",
-        "noopener,noreferrer"
-      );
+    setMensajeInvitado("");
+    setAsistencia("");
+    setInvitados("");
 
-      // Se conservan el nombre y los pases del generador.
-      setMensajeInvitado("");
-      setAsistencia("");
-      setInvitados("");
+    window.setTimeout(() => {
+      setEnviado(false);
+    }, 5000);
+  } catch (error) {
+    console.error(
+      "Error al enviar la confirmación:",
+      error
+    );
 
-      window.setTimeout(() => {
-        setEnviado(false);
-      }, 5000);
-    } catch (error) {
-      console.error("Error al enviar la confirmación:", error);
-
-      setError(
-        "No fue posible guardar la confirmación. Revisa tu conexión e intenta nuevamente."
-      );
-    } finally {
-      // El botón se habilita nuevamente al terminar.
-      setEnviando(false);
-    }
-  };
-
+    setError(
+      "No fue posible enviar la confirmación. Revisa la implementación de Google Apps Script."
+    );
+  } finally {
+    setEnviando(false);
+  }
+};
   return (
     <section
       className="
