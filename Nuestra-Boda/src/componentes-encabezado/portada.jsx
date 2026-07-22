@@ -41,7 +41,7 @@ export default function Portada() {
               drop-shadow-2xl
             "
           >
-            Maria & Fernando
+            Coni & Fernando
           </h1>
 
           <div className="w-24 h-px bg-white/70 mx-auto my-7"></div>
