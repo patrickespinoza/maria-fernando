@@ -2,104 +2,342 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Celebracion = ({
-  titulo = "Celebración",
-  fecha = "11 Junio 2026",
-  hora = "4:30 PM",
-  lugar = "Salón Event Center",
-  direccion = "C.5 Pte. 400, Libertad, Heroica Puebla de Zaragoza, Pue.",
-  ubicacion = "https://maps.app.goo.gl/TsSDUBKAractwi8F8",
+  fecha = "03 Octubre 2026",
+
+  eventoUno = "Ceremonia Civil",
+  horaEventoUno = "17:00 Hrs",
+
+  eventoDos = "Recepción",
+  horaEventoDos = "18:00 Hrs",
+
+  lugar = "Salón Acrofest",
+  direccion = "Allende 514 72760, Santiago Momoxpan, 72760 Santiago Momoxpan, Pue.",
+
+  ubicacion = "https://maps.app.goo.gl/7NAnrFaocAPJeQ4KA?g_st=ic",
 }) => {
+  const eventos = [
+    {
+      titulo: eventoUno,
+      hora: horaEventoUno,
+      
+    },
+    {
+      titulo: eventoDos,
+      hora: horaEventoDos,
+      
+    },
+  ];
+
   return (
-    <section className="w-full bg-[#F4E8DD] px-5 py-20 sm:py-24 overflow-hidden">
+    <section
+      className="
+        relative
+        w-full
+        overflow-hidden
+        bg-[#FDF4EF]
+        px-5
+        py-20
+        sm:py-24
+        lg:py-28
+      "
+    >
+      {/* Decoración de fondo */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -left-24
+          top-16
+          h-64
+          w-64
+          rounded-full
+          bg-[#AADCF2]/25
+          blur-3xl
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-24
+          bottom-10
+          h-72
+          w-72
+          rounded-full
+          bg-[#F7BCB0]/25
+          blur-3xl
+        "
+      />
+
       <motion.div
         initial={{ opacity: 0, y: 45 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        viewport={{ once: true }}
+        transition={{
+          duration: 0.9,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
         className="
-          max-w-5xl
+          relative
+          z-10
           mx-auto
-          bg-white/65
-          backdrop-blur-md
-          border
-          border-[#B88A8A]/35
-          shadow-[0_25px_70px_rgba(74,20,29,0.16)]
+          max-w-5xl
+          overflow-hidden
           rounded-tl-[4rem]
           rounded-br-[4rem]
           rounded-tr-2xl
           rounded-bl-2xl
+          border
+          border-[#767B39]/20
+          bg-white/75
           px-6
           py-14
-          sm:px-12
-          sm:py-16
           text-center
+          shadow-[0_25px_70px_rgba(64,60,50,0.14)]
+          backdrop-blur-md
+          sm:px-10
+          sm:py-16
+          md:px-14
         "
       >
-        <p className="uppercase tracking-[0.35em] text-[#B88A8A] text-xs sm:text-sm font-semibold mb-4">
-          Día especial
+        {/* Esquinas decorativas */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            left-5
+            top-5
+            h-16
+            w-16
+            rounded-tl-[2.5rem]
+            border-l
+            border-t
+            border-[#EAA624]/45
+          "
+        />
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            bottom-5
+            right-5
+            h-16
+            w-16
+            rounded-br-[2.5rem]
+            border-b
+            border-r
+            border-[#EAA624]/45
+          "
+        />
+
+        {/* Encabezado */}
+        <p
+          className="
+            mb-4
+            text-xs
+            font-semibold
+            uppercase
+            tracking-[0.4em]
+            text-[#C85555]
+            sm:text-sm
+          "
+        >
+          Nuestra celebración
         </p>
 
-        <h2 className="font-playfair text-[#4A141D] text-4xl sm:text-5xl md:text-6xl">
-          {titulo}
+        <h2
+          className="
+            font-playfair
+            text-4xl
+            text-[#767B39]
+            sm:text-5xl
+            md:text-6xl
+          "
+        >
+          Un mismo lugar, dos momentos especiales
         </h2>
 
-        <div className="w-24 h-px bg-[#B88A8A] mx-auto my-8"></div>
+        <div className="mx-auto my-7 flex items-center justify-center gap-4">
+          <div className="h-px w-12 bg-[#EAA624]/70 sm:w-20" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
-          <div className="bg-[#4A141D] text-[#F4E8DD] rounded-3xl px-6 py-6 shadow-lg">
-            <p className="text-sm uppercase tracking-[0.2em] text-[#F4E8DD]/70 mb-2">
-              Fecha
-            </p>
-            <p className="font-playfair text-2xl sm:text-3xl">{fecha}</p>
-          </div>
+          <div className="h-2 w-2 rotate-45 bg-[#C85555]" />
 
-          <div className="bg-[#4A141D] text-[#F4E8DD] rounded-3xl px-6 py-6 shadow-lg">
-            <p className="text-sm uppercase tracking-[0.2em] text-[#F4E8DD]/70 mb-2">
-              Hora
-            </p>
-            <p className="font-playfair text-2xl sm:text-3xl">{hora}</p>
-          </div>
+          <div className="h-px w-12 bg-[#EAA624]/70 sm:w-20" />
         </div>
 
-        <div className="mt-10 max-w-2xl mx-auto">
-          <p className="font-cursiveDancing text-[#B88A8A] text-4xl mb-3">
-            Ubicación
+        <p
+          className="
+            font-playfair
+            text-xl
+            tracking-[0.08em]
+            text-[#403C32]
+            sm:text-2xl
+          "
+        >
+          {fecha}
+        </p>
+
+        {/* Eventos */}
+        <div
+          className="
+            mx-auto
+            mt-10
+            grid
+            max-w-3xl
+            grid-cols-1
+            gap-5
+            md:grid-cols-2
+          "
+        >
+          {eventos.map((evento, index) => (
+            <motion.article
+              key={`${evento.titulo}-${evento.hora}`}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.65,
+                delay: index * 0.15,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.3,
+              }}
+              className="
+                relative
+                overflow-hidden
+                rounded-[2rem]
+                border
+                border-[#767B39]/20
+                bg-[#FDF4EF]
+                px-6
+                py-8
+                shadow-[0_14px_35px_rgba(64,60,50,0.09)]
+              "
+            >
+
+
+              <p
+                className="
+                  mb-3
+                  text-xs
+                  uppercase
+                  tracking-[0.32em]
+                  text-[#C85555]
+                "
+              >
+                Evento {evento.numero}
+              </p>
+
+              <h3
+                className="
+                  font-playfair
+                  text-2xl
+                  text-[#767B39]
+                  sm:text-3xl
+                "
+              >
+                {evento.titulo}
+              </h3>
+
+              <div className="mx-auto my-5 h-px w-12 bg-[#EAA624]/70" />
+
+              <p
+                className="
+                  font-playfair
+                  text-2xl
+                  text-[#403C32]
+                  sm:text-3xl
+                "
+              >
+                {evento.hora}
+              </p>
+            </motion.article>
+          ))}
+        </div>
+
+        {/* Ubicación compartida */}
+        <div
+          className="
+            mx-auto
+            mt-12
+            max-w-3xl
+            border-t
+            border-[#767B39]/15
+            pt-10
+          "
+        >
+          <p
+            className="
+              mb-3
+              font-cursiveDancing
+              text-4xl
+              text-[#C85555]
+              sm:text-5xl
+            "
+          >
+            Mismo lugar
           </p>
 
-          <h3 className="font-playfair text-[#4A141D] text-2xl sm:text-3xl mb-4">
+          <h3
+            className="
+              font-playfair
+              text-2xl
+              text-[#767B39]
+              sm:text-3xl
+            "
+          >
             {lugar}
           </h3>
 
-          <p className="text-[#4A141D]/75 text-base sm:text-lg leading-relaxed">
+
+          <p
+            className="
+              mx-auto
+              mt-5
+              max-w-2xl
+              text-base
+              leading-relaxed
+              text-[#403C32]/75
+              sm:text-lg
+            "
+          >
             {direccion}
           </p>
-        </div>
 
-        <a
-          href={ubicacion}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="
-            inline-block
-            mt-10
-            bg-[#4A141D]
-            text-[#F4E8DD]
-            px-9
-            py-4
-            rounded-full
-            font-playfair
-            text-base
-            sm:text-lg
-            tracking-wide
-            shadow-[0_15px_35px_rgba(74,20,29,0.28)]
-            hover:bg-[#6B1F2A]
-            hover:scale-105
-            transition
-            duration-300
-          "
-        >
-          Ver ubicación
-        </a>
+          <a
+            href={ubicacion}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              mt-9
+              inline-flex
+              items-center
+              justify-center
+              rounded-full
+              bg-[#767B39]
+              px-9
+              py-4
+              font-playfair
+              text-base
+              tracking-[0.08em]
+              text-white
+              shadow-[0_15px_35px_rgba(118,123,57,0.28)]
+              transition
+              duration-300
+              hover:-translate-y-1
+              hover:bg-[#656A31]
+              hover:shadow-[0_20px_40px_rgba(118,123,57,0.33)]
+              sm:text-lg
+            "
+          >
+            Ver ubicación
+          </a>
+        </div>
       </motion.div>
     </section>
   );

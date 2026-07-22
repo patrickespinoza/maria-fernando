@@ -4,57 +4,56 @@ export default function Portada() {
   return (
     <section className="relative w-full h-screen overflow-hidden">
 
-      {/* FOTO */}
+      {/* Imagen */}
       <img
-        src="/Portada-02.png"
-        alt="Allison y David"
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        src="/Portada.JPEG"
+        alt="Maria y Fernando"
+        className="
+          absolute
+          inset-0
+          w-full
+          h-full
+          object-cover
+          object-center
+       
+        "
+        style={{
+          objectPosition: "center 15%",
+        }}
       />
 
-      {/* Degradado para mejorar lectura */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent"></div>
+      {/* Oscurecer ligeramente la imagen */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
 
       {/* Contenido */}
-      <div className="relative z-10 h-full flex flex-col justify-end items-center text-center px-6 pb-24">
+      <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center pb-20 px-6">
 
-        <p className="uppercase tracking-[0.45em] text-white/90 text-sm sm:text-base font-playfair mb-6">
-          Nos Casamos
-        </p>
+        <div className="text-center">
 
-        <h1
-          className="
-            font-cursiveDancing
-            text-white
-            text-6xl
-            sm:text-7xl
-            md:text-8xl
-            lg:text-[7rem]
-            leading-none
-            drop-shadow-2xl
-          "
-        >
-          Allison & David
-        </h1>
+          <h1
+            className="
+              font-cursiveDancing
+              text-white
+              text-6xl
+              sm:text-7xl
+              md:text-8xl
+              leading-none
+              drop-shadow-2xl
+            "
+          >
+            Maria & Fernando
+          </h1>
 
-        <div className="w-24 h-px bg-white/70 my-8"></div>
+          <div className="w-24 h-px bg-white/70 mx-auto my-7"></div>
 
-        <div
-          className="
-            px-8
-            py-3
-            rounded-full
-            bg-white/15
-            backdrop-blur-lg
-            border
-            border-white/20
-          "
-        >
-          <p className="font-playfair text-white text-lg sm:text-xl tracking-[0.2em] uppercase">
-            11 · Junio · 2027
+          <p className="font-playfair text-white uppercase tracking-[0.22em] text-lg sm:text-xl">
+            03 · Octubre · 2026
           </p>
+
         </div>
 
       </div>
+
     </section>
   );
 }

@@ -5,7 +5,7 @@ const Contador = ({
   titulo = "¡Estás invitado!",
   texto = "Nos encantaría que seas parte de este momento tan especial para nosotros.",
   frase = "¡Falta poco!",
-  fecha = "2027-07-11T00:00:00",
+  fecha = "2026-09-03T00:00:00",
 }) => {
   const calculateTime = () => {
     const difference = +new Date(fecha) - +new Date();
