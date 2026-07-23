@@ -16,12 +16,14 @@ export default function Intinerario() {
       <Portada />
 
      <Musica/>
-
+      
+<ModalFrase/>
+      
      <Novios/>
 
      <Celebracion />
 
-     <ModalFrase/>
+     
 
       <Dresscode />
 
