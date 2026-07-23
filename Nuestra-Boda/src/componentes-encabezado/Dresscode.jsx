@@ -5,8 +5,7 @@ const Vestimenta = ({
   imagen = "/dresscode.png",
   posicionImagen = "center 30%",
   codigo = "Formal",
-  descripcion = "Nos encantará verte elegante para celebrar este día tan especial junto a nosotros.",
-  nota = "Agradecemos elegir un atuendo acorde a la ocasión.",
+  nota = "Con tu cariño y compañía este día ya será perfecto. Si deseas sumarte al ambiente de la celebración, te invitamos a vestir de manera elegante.",
 }) => {
   return (
     <section
@@ -248,18 +247,7 @@ const Vestimenta = ({
               {codigo}
             </p>
 
-            <p
-              className="
-                mt-8
-                text-base
-                leading-8
-                text-[#403C32]/80
-                sm:text-lg
-              "
-            >
-              {descripcion}
-            </p>
-
+          
             <div
               className="
                 mt-8
@@ -295,20 +283,7 @@ const Vestimenta = ({
                 lg:justify-start
               "
             >
-              <span className="h-px w-10 bg-[#767B39]/35" />
 
-              <span
-                className="
-                  text-xs
-                  uppercase
-                  tracking-[0.3em]
-                  text-[#767B39]
-                "
-              >
-                Elegancia y armonía
-              </span>
-
-              <span className="h-px w-10 bg-[#767B39]/35" />
             </div>
           </motion.div>
         </div>

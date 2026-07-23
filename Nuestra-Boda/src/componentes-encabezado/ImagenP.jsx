@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const SeparadorFrase = ({
   imagen = "/Iprincipal.JPEG",
-  frase = "Después de caminar juntos este tiempo, hemos decidido dar el paso más importante. Queremos que seas testigo del día en que uniremos nuestras vidas para siempre.",
+  frase = "Sea cual sea la materia de que estén hechas nuestras almas, la suya y la mía son la misma.",
 }) => {
   return (
     <section
@@ -284,12 +284,12 @@ const SeparadorFrase = ({
                 className="
                   mt-9
                   font-cursiveDancing
-                  text-3xl
+                  text-base
                   text-[#C85555]
                   sm:text-4xl
                 "
               >
-                Juntos para siempre
+                Con inmensa alegría, tenemos el honor de invitarte a celebrar nuestra boda por el civil. Tu presencia hará de este día un recuerdo inolvidable.
               </p>
             </motion.div>
           </div>
