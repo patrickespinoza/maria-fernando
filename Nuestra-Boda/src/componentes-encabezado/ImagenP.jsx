@@ -284,7 +284,7 @@ const SeparadorFrase = ({
                 className="
                   mt-9
                   font-cursiveDancing
-                  text-base
+                  text-xl
                   text-[#C85555]
                   sm:text-4xl
                 "
